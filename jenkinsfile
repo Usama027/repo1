@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building on branch: ${env.BRANCH_NAME}"
+            }
+        }
+
+        stage('Branch Specific Actions') {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'repo1') {
+                        echo '################ Running integration repo1 ####################...'
+                        // Add production deployment steps here
+                    } else if (env.BRANCH_NAME == 'repo2') {
+                        echo '################ Running integration repo2 ####################...'
+                        // Add integration test steps here
+                    } 
+                }
+            }
+        }
+    }
+}
