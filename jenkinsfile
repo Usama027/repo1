@@ -8,17 +8,23 @@ pipeline {
             }
         }
 
-        stage('Branch Specific Actions') {
+        stage('Deploy to Production') {
+            when {
+                branch 'repo1'
+            }
             steps {
-                script {
-                    if (env.BRANCH_NAME == 'repo1') {
-                        echo '################ Running integration repo1 ####################...'
-                        // Add production deployment steps here
-                    } else if (env.BRANCH_NAME == 'repo2') {
-                        echo '################ Running integration repo2 ####################...'
-                        // Add integration test steps here
-                    } 
-                }
+                echo 'Deploying to repo1 #####################################...'
+                // Add production deployment steps here
+            }
+        }
+
+        stage('Integration Tests') {
+            when {
+                branch 'repo2'
+            }
+            steps {
+                echo 'Deploying to repo1 #####################################...'
+                // Add integration test steps here
             }
         }
     }
