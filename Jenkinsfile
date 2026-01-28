@@ -10,7 +10,7 @@ pipeline {
 
         stage('Deploy to Production') {
             when {
-                branch 'repo1'
+                branch 'branch1'
             }
             steps {
                 echo 'Deploying to repo1 #####################################...'
@@ -20,7 +20,7 @@ pipeline {
 
         stage('Integration Tests') {
             when {
-                branch 'repo2'
+                branch 'branch2'
             }
             steps {
                 echo 'Deploying to repo1 #####################################...'
