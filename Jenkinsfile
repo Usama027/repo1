@@ -23,7 +23,7 @@ pipeline {
                 branch 'branch2'
             }
             steps {
-                echo 'Deploying to repo1 #####################################...'
+                echo 'Deploying to repo2 #####################################...'
                 // Add integration test steps here
             }
         }
