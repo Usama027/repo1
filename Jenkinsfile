@@ -1,6 +1,11 @@
 pipeline {
     agent any
+    environment {
+        TEST_TEXT     = 'any text with or without qa [qa]]'
+        
+    }
 
+    def skipQaPipeline = env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
     stages {
         stage('Build') {
             steps {
@@ -8,9 +13,16 @@ pipeline {
             }
         }
 
+        
+        
+
+
         stage('Deploy to Production') {
             when {
                 branch 'repo1'
+            allOf {
+                    expression { qaPipeline.toBoolean() }
+                }
             }
             steps {
                 echo 'Deploying to repo1 #####################################...'
