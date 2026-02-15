@@ -16,12 +16,12 @@ pipeline {
     stage('Deploy to Production') {
         when {
             branch 'repo1'
+            echo skipQaPipeline
         allOf {
                 expression { qaPipeline.toBoolean() }
             }
         }
         steps {
-            echo skipQaPipeline
             echo 'Deploying to repo1 #####################################...'
             // Add production deployment steps here
         }
