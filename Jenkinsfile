@@ -1,4 +1,4 @@
-def skipQaPipeline = env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
+def qaPipeline = env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
 pipeline {
     agent any
     
@@ -21,6 +21,7 @@ pipeline {
             }
         }
         steps {
+            echo skipQaPipeline
             echo 'Deploying to repo1 #####################################...'
             // Add production deployment steps here
         }
