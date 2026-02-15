@@ -1,6 +1,11 @@
+def skipQaPipeline = env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
 pipeline {
     agent any
-
+    
+    environment {
+        TEST_TEXT     = 'any text with or without qa '
+        
+    }
     stages {
         stage('Build') {
             steps {
@@ -8,24 +13,27 @@ pipeline {
             }
         }
 
-        stage('Deploy to Production') {
-            when {
-                branch 'branch1'
-            }
-            steps {
-                echo 'Deploying to repo1 #####################################...'
-                // Add production deployment steps here
+    stage('Deploy to Production') {
+        when {
+            branch 'repo1'
+        allOf {
+                expression { qaPipeline.toBoolean() }
             }
         }
+        steps {
+            echo 'Deploying to repo1 #####################################...'
+            // Add production deployment steps here
+        }
+    }
 
-        stage('Integration Tests') {
-            when {
-                branch 'branch2'
-            }
-            steps {
-                echo 'Deploying to repo2 #####################################...'
-                // Add integration test steps here
-            }
+    stage('Integration Tests') {
+        when {
+            branch 'repo2'
         }
+        steps {
+            echo 'Deploying to repo1 #####################################...'
+            // Add integration test steps here
+        }
+    }
     }
 }
