@@ -10,13 +10,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
+                echo skipQaPipeline
             }
         }
 
     stage('Deploy to Production') {
         when {
             branch 'repo1'
-            echo skipQaPipeline
+
         allOf {
                 expression { qaPipeline.toBoolean() }
             }
