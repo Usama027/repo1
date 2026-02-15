@@ -3,7 +3,7 @@ pipeline {
     agent any
     
     environment {
-        TEST_TEXT     = 'any text with or without qa '
+        TEST_TEXT     = 'any text with or without qa [qa]'
         
     }
     stages {
