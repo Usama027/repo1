@@ -13,17 +13,17 @@ def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
 //     return text.contains('[qa]')
 // }
 
-// def hasQaTag(text) {
-//     return text?.contains('[qa]')
-// }
-// def result = hasQaTag(env.TEST_TEXT)
-
-def qaPipeline(text) {
-    if (text != text.toLowerCase().contains('[qa]') {
-        return false
-    }
-
+def hasQaTag(text) {
+    return text?.contains('[qa]')
 }
+def result = hasQaTag(env.TEST_TEXT)
+
+// def qaPipeline(text) {
+//     if (text != text.toLowerCase().contains('[qa]') {
+//         return false
+//     }
+
+// }
 
 pipeline {
     agent any
@@ -37,7 +37,7 @@ pipeline {
             
             steps {             
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo ">>>>>>> text >>>> : ${qaPipeline(env.TEST_TEXT)}"
+                echo ">>>>>>> text >>>> : ${result}"
                 // echo '">>>>>>> text >>>> : ${hasQa}"'
 
             }
