@@ -39,7 +39,7 @@ pipeline {
             steps {             
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 // echo ">>>>>>> text >>>> : ${result}"
-                // echo ">>>>>>> text >>>> : ${hasQa}"
+                echo ">>>>>>> text >>>> : ${hasQa}"
 
             }
         }
