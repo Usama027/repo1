@@ -5,7 +5,7 @@
 // def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
 
 // def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find('[qa]')
-def hasQa =(text =~ /\[qa\].*?\[\/qa\]/).find()
+def hasQa =(env.TEST_TEXT =~ /\[qa\].*?\[\/qa\]/).find()
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -14,10 +14,10 @@ def hasQa =(text =~ /\[qa\].*?\[\/qa\]/).find()
 //     return text.contains('[qa]')
 // }
 
-def hasQaTag(text) {
-    return text?.toString()?.toLowerCase()?.contains("[qa]")
-}
-def result = hasQaTag(env.TEST_TEXT)
+// def hasQaTag(text) {
+//     return text?.toString()?.toLowerCase()?.contains("[qa]")
+// }
+// def result = hasQaTag(env.TEST_TEXT)
 
 // def qaPipeline(text) {
 //     if (text != text.toLowerCase().contains('[qa]') {
@@ -38,8 +38,8 @@ pipeline {
             
             steps {             
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo ">>>>>>> text >>>> : ${result}"
-                echo ">>>>>>> text >>>> : ${hasQa}"
+                // echo ">>>>>>> text >>>> : ${result}"
+                // echo ">>>>>>> text >>>> : ${hasQa}"
 
             }
         }
