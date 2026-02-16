@@ -13,7 +13,7 @@
 // def result = hasQaTag(env.TEST_TEXT)
 
 def qaPipeline(text) {
-    if (text == null) {
+    if (text != text.toLowerCase().contains('[qa]') {
         return false
     }
     return text.toLowerCase().contains('[qa]')
