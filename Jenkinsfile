@@ -49,7 +49,7 @@ pipeline {
 
         allOf {
                 // expression { qaPipeline(env.TEST_TEXT) != false }
-             // expression {${env.TEST_TEXT?.toLowerCase()?.contains('[qa]')}" != false}}
+             // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
             expression { hasQa}
             }
         }
