@@ -34,8 +34,8 @@ pipeline {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
-                echo  ">>>>>>>>>>>>>> hasQa
-                echo  ">>>>>>>>>>>>>> ${hasQa}
+                // echo  ">>>>>>>>>>>>>>" hasQa 
+                echo  ">>>>>>>>>>>>>> ${hasQa}"
 
             }
         }
