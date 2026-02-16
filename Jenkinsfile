@@ -1,4 +1,5 @@
 // def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: false
+def qaPipeline = env.TEST_TEXT?.toString()
 
 // def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
 
@@ -34,6 +35,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
+                echo ">>>>>>> text >>>> : ${env.qaPipeline}"
 
 
             }
