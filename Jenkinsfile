@@ -1,4 +1,6 @@
 def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
+
+def matcher = (env.TEST_TEXT =~ /\[qa\]/i) 
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -31,6 +33,9 @@ pipeline {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                echo  ">>>>>>>>>>>>>> matcher
+                echo  ">>>>>>>>>>>>>> ${matcher}
+
             }
         }
 
