@@ -14,7 +14,7 @@ def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
 // }
 
 def hasQaTag(text) {
-    return text?.contains('[qa]')
+    return text?.toString()?.toLowerCase()?.contains('[qa]')
 }
 def result = hasQaTag(env.TEST_TEXT)
 
