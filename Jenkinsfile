@@ -1,8 +1,8 @@
-// def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: false
-// def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
-// def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
+def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: false
 
+def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
 
+def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -34,10 +34,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                // echo  ">>>>>>hasQa>>>>>>>> ${hasQa}"
-                // echo "text >>>>>>>>>> ${env.TEST_TEXT}"
-                // echo  ">>>>>qa>>>>>>>>> ${qa}"
-                // echo  ">>>>>>>>qaPipeline>>>>>> ${qaPipeline}"
+                // echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                // echo  ">>>>>>>>>>>>>>" hasQa 
+                echo  ">>>>>>>>>>>>>> ${hasQa}"
+                echo "text >>>>>>>>>> ${env.TEST_TEXT}"
+                echo  ">>>>>>>>>>>>>> ${qa}"
+                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
 
             }
         }
@@ -47,9 +49,9 @@ pipeline {
             branch 'repo1'
 
         allOf {
-            // expression { qaPipeline(env.TEST_TEXT) != false }
-            // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
-            // expression {hasQa}
+                // expression { qaPipeline(env.TEST_TEXT) != false }
+             // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
+            expression { hasQa}
             }
         }
         steps {
