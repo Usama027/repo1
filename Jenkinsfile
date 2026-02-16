@@ -1,4 +1,4 @@
-// def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
+def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -30,7 +30,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>>>>>>>>> ${env.TEST_TEXT?.toLowerCase()?.contains('[qa]}'"
+                echo  ">>>>>>>>>>>>>> qaPipeline()"
             }
         }
 
