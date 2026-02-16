@@ -34,12 +34,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                // echo  ">>>>>>>>>>>>>> ${qaPipeline}"
-                // echo  ">>>>>>>>>>>>>>" hasQa 
-                echo  ">>>>>>>>>>>>>> ${hasQa}"
+                echo  ">>>>>>hasQa>>>>>>>> ${hasQa}"
                 echo "text >>>>>>>>>> ${env.TEST_TEXT}"
-                echo  ">>>>>>>>>>>>>> ${qa}"
-                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                echo  ">>>>>qa>>>>>>>>> ${qa}"
+                echo  ">>>>>>>>qaPipeline>>>>>> ${qaPipeline}"
 
             }
         }
@@ -49,8 +47,8 @@ pipeline {
             branch 'repo1'
 
         allOf {
-                // expression { qaPipeline(env.TEST_TEXT) != false }
-             // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
+            // expression { qaPipeline(env.TEST_TEXT) != false }
+            // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
             expression { hasQa}
             }
         }
