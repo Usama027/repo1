@@ -1,6 +1,6 @@
 def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: false
-def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
-def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
+// def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
+// def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
 
 
 // def qaPipeline (text) {
@@ -34,9 +34,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>hasQa>>>>>>>> ${hasQa}"
+                // echo  ">>>>>>hasQa>>>>>>>> ${hasQa}"
                 echo "text >>>>>>>>>> ${env.TEST_TEXT}"
-                echo  ">>>>>qa>>>>>>>>> ${qa}"
+                // echo  ">>>>>qa>>>>>>>>> ${qa}"
                 echo  ">>>>>>>>qaPipeline>>>>>> ${qaPipeline}"
 
             }
