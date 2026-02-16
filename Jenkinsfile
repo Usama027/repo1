@@ -1,5 +1,5 @@
 // def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
-def hasQaTag(text) {
+def qaPipeline (text) {
     if (env.TEST_TEXT == null) {
         return false
     }
