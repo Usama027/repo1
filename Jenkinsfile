@@ -1,11 +1,16 @@
 // def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
-def qaPipeline (text) {
-    if (env.TEST_TEXT == null) {
-        return false
-    }
-    text = text.toLowerCase()
-    return text.contains('[qa]')
+// def qaPipeline (text) {
+//     if (env.TEST_TEXT == null) {
+//         return false
+//     }
+//     text = text.toLowerCase()
+//     return text.contains('[qa]')
+// }
+
+def hasQaTag(text) {
+    return text?.toLowerCase()?.contains('[qa]')
 }
+def result = hasQaTag(env.TEST_TEXT)
 pipeline {
     agent any
     
@@ -26,7 +31,7 @@ pipeline {
             branch 'repo1'
 
         allOf {
-                expression { qaPipeline }
+                expression { result }
             }
         }
         steps {
