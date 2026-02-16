@@ -1,4 +1,4 @@
-def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
+// def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -12,6 +12,13 @@ def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
 // }
 // def result = hasQaTag(env.TEST_TEXT)
 
+def qaPipeline(text) {
+    if (text == null) {
+        return false
+    }
+    return text.toLowerCase().contains('[qa]')
+}
+
 pipeline {
     agent any
     
@@ -23,7 +30,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                echo  ">>>>>>>>>>>>>> qaPipeline()"
             }
         }
 
@@ -32,7 +39,7 @@ pipeline {
             branch 'repo1'
 
         allOf {
-                expression { qaPipeline != false }
+                expression { qaPipeline(env.TEST_TEXT) != false }
             }
         }
         steps {
