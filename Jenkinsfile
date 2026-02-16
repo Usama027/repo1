@@ -19,7 +19,7 @@ pipeline {
             branch 'repo1'
 
         allOf {
-                expression {env.qaPipeline == true }
+                expression {env.qaPipeline == false }
             }
         }
         steps {
