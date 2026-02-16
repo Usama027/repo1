@@ -2,7 +2,7 @@
 
 // def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
 
-def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
+// def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
