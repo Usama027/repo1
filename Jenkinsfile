@@ -1,5 +1,5 @@
 // def qaPipeline = env.TEST_TEXT.toString()?.toLowerCase()?.contains('[qa]')?: false
- def qaPipeline = env.TEST_TEXT.contains("[qa]")?: false
+ def qaPipeline = env.TEST_TEXT?.contains("[qa]")?: false
 // def qaPipeline = env.TEST_TEXT?.toString()
 
 // def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
