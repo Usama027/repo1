@@ -35,7 +35,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo ">>>>>>> text >>>> : ${var.TEST_TEXT}"
+                echo ">>>>>>> text >>>> : ${env.TEST_TEXT}"
                 // echo '">>>>>>> text >>>> : ${hasQa}"'
             script {
                     def result = qaPipeline
