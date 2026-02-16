@@ -1,8 +1,8 @@
-// def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: false
+def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: false
 
-// def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
+def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
 
-// def hasQa = (env.TEST_TEXT.toString()?.contains('[qa]')?: false)
+def hasQa = (env.TEST_TEXT =~ /\[qa\]/).find()
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -36,39 +36,38 @@ pipeline {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 // echo  ">>>>>>>>>>>>>> ${qaPipeline}"
                 // echo  ">>>>>>>>>>>>>>" hasQa 
-                // echo  ">>>>>>>>>>>>>> ${hasQa}"
-                // echo "text >>>>>>>>>> ${env.TEST_TEXT}"
-                // echo "text >>>>>>>>>> ${env.TEST_TEXT}.toString()"
-                // echo  ">>>>>>>>>>>>>> ${qa}"
-                //  echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                echo  ">>>>>>>>>>>>>> ${hasQa}"
+                echo "text >>>>>>>>>> ${env.TEST_TEXT}"
+                echo  ">>>>>>>>>>>>>> ${qa}"
+                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
 
             }
         }
 
-    stage('Deploy to Production') {
-        when {
-            branch 'repo1'
+        stage('Deploy to Production') {
+            when {
+                branch 'repo1'
 
-        allOf {
-                // expression { qaPipeline(env.TEST_TEXT) != false }
-             // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
-            // expression {env.TEST_TEXT}
+            allOf {
+                    // expression { qaPipeline(env.TEST_TEXT) != false }
+                // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
+                expression { hasQa}
+                }
+            }
+            steps {
+                echo 'Deploying to repo1 #####################################...'
+                // Add production deployment steps here
             }
         }
-        steps {
-            echo 'Deploying to repo1 #####################################...'
-            // Add production deployment steps here
-        }
-    }
 
-    stage('Integration Tests') {
-        when {
-            branch 'repo2'
+        stage('Integration Tests') {
+            when {
+                branch 'repo2'
+            }
+            steps {
+                echo 'Deploying to repo1 #####################################...'
+                // Add integration test steps here
+            }
         }
-        steps {
-            echo 'Deploying to repo1 #####################################...'
-            // Add integration test steps here
-        }
-    }
     }
 }
