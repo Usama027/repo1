@@ -8,7 +8,7 @@
 // }
 
 def hasQaTag(text) {
-    return text?.toLowerCase()?.contains('[qa]')
+    return text?.contains('[qa]')
 }
 def result = hasQaTag(env.TEST_TEXT)
 
