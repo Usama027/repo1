@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>hasQa>>>>>>>> ${hasQa}"
+                // echo  ">>>>>>hasQa>>>>>>>> ${hasQa}"
                 // echo "text >>>>>>>>>> ${env.TEST_TEXT}"
                 // echo  ">>>>>qa>>>>>>>>> ${qa}"
                 // echo  ">>>>>>>>qaPipeline>>>>>> ${qaPipeline}"
@@ -49,7 +49,7 @@ pipeline {
         allOf {
             // expression { qaPipeline(env.TEST_TEXT) != false }
             // expression {${env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')}" != false}}
-            expression {hasQa}
+            // expression {hasQa}
             }
         }
         steps {
