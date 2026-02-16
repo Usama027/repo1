@@ -30,7 +30,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>>>>>>>>> qaPipeline()"
+                echo  ">>>>>>>>>>>>>> qaPipeline"
             }
         }
 
