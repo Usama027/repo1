@@ -1,4 +1,11 @@
-def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
+// def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
+def hasQaTag(text) {
+    if (env.TEST_TEXT == null) {
+        return false
+    }
+    text = text.toLowerCase()
+    return text.contains('[qa]')
+}
 pipeline {
     agent any
     
