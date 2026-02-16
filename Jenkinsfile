@@ -16,7 +16,7 @@ def qaPipeline(text) {
     if (text != text.toLowerCase().contains('[qa]') {
         return false
     }
-    return text.toLowerCase().contains('[qa]')
+    return true)
 }
 
 pipeline {
