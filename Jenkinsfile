@@ -33,7 +33,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                // echo  ">>>>>>>>>>>>>> ${qaPipeline}"
                 // echo  ">>>>>>>>>>>>>>" hasQa 
                 echo  ">>>>>>>>>>>>>> ${hasQa}"
                 echo "text >>>>>>>>>> ${env.TEST_TEXT}"
