@@ -2,7 +2,7 @@ def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains('[qa]')?: fa
 
 def qa  = (env.TEST_TEXT =~ /\[ (.+) ]/)
 
-def hasQa = (env.TEST_TEXT.toString() =~ /\[qa\]/).find()
+def hasQa = (env.TEST_TEXT.toString()?.contains('[qa]')?: false)
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
