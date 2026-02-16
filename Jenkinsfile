@@ -34,16 +34,15 @@ pipeline {
     }
     stages {
         stage('Build') {
-            def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains("[qa]")?: false
+            
             steps {
+                script{
+                 def qaPipeline = env.TEST_TEXT?.toString()?.toLowerCase()?.contains("[qa]")?: false
+                }
+             
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 echo ">>>>>>> text >>>> : ${qaPipeline}"
                 // echo '">>>>>>> text >>>> : ${hasQa}"'
-            script {
-                    def result = qaPipeline
-                    echo "def result: ${result}"
-                }
-
 
             }
         }
