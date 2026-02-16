@@ -11,6 +11,7 @@ def hasQaTag(text) {
     return text?.toLowerCase()?.contains('[qa]')
 }
 def result = hasQaTag(env.TEST_TEXT)
+
 pipeline {
     agent any
     
@@ -22,7 +23,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                echo  ">>>>>>>>>>>>>> result"
             }
         }
 
@@ -31,7 +32,7 @@ pipeline {
             branch 'repo1'
 
         allOf {
-                expression { result }
+                expression { result == true }
             }
         }
         steps {
