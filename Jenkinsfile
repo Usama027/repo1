@@ -12,12 +12,12 @@
 // }
 // def result = hasQaTag(env.TEST_TEXT)
 
-def qaPipeline(text) {
-    if (text != text.toLowerCase().contains('[qa]') {
-        return false
-    }
+// def qaPipeline(text) {
+//     if (text != text.toLowerCase().contains('[qa]') {
+//         return false
+//     }
 
-}
+// }
 
 pipeline {
     agent any
