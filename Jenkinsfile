@@ -1,7 +1,7 @@
 def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
 
 
-def hasQa = (${env.TEST_TEXT} =~ /\[qa\]/).find()
+def hasQa = (${env.TEST_TEXT} =~ /\[qa\]/i).find()
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -36,7 +36,7 @@ pipeline {
                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
                 // echo  ">>>>>>>>>>>>>>" hasQa 
                 echo  ">>>>>>>>>>>>>> ${hasQa}"
-                echo "text >>>>>>>>>>" ${env.TEST_TEXT}
+                echo "text >>>>>>>>>> ${env.TEST_TEXT}"
 
             }
         }
