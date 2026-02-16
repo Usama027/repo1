@@ -38,8 +38,9 @@ pipeline {
                 // echo  ">>>>>>>>>>>>>>" hasQa 
                 echo  ">>>>>>>>>>>>>> ${hasQa}"
                 echo "text >>>>>>>>>> ${env.TEST_TEXT}"
-                echo  ">>>>>>>>>>>>>> ${qa}"
-                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
+                echo "text >>>>>>>>>> ${env.TEST_TEXT.toString()}"
+                // echo  ">>>>>>>>>>>>>> ${qa}"
+                //  echo  ">>>>>>>>>>>>>> ${qaPipeline}"
 
             }
         }
