@@ -36,7 +36,7 @@ pipeline {
                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
                 // echo  ">>>>>>>>>>>>>>" hasQa 
                 echo  ">>>>>>>>>>>>>> ${hasQa}"
-                echo "text >>>>>>>>>>" env.TEST_TEXT
+                echo "text >>>>>>>>>>" ${env.TEST_TEXT}
 
             }
         }
