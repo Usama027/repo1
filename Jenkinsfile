@@ -1,4 +1,4 @@
-def qaPipeline = env.TEST_TEXT?.toLowerCase()?.contains('[qa]')?.toBoolean()?: false
+def qaPipeline = env.TEST_TEXT?.contains('[qa]')?: false
 pipeline {
     agent any
     
