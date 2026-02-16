@@ -6,7 +6,9 @@
 
 // def hasQa = (env.TEST_TEXT.toString() =~ /\[qa\]/).find('[qa]')
 // def hasQa =(env.TEST_TEXT?.contains('[qa]') =~ /\[qa\].*?\[\/qa\]/).find()
-def hasQa = env.TEST_TEXT?.toString()?.contains('[qa]')?: false
+// def hasQa = env.TEST_TEXT?.toString()?.contains('[qa]')?: false
+def hasQa = (env.TEST_TEXT =~ /\[qa\](.*?)\[\/qa\]/)
+def found = matcher.find() // true if found, false otherwise
 // def qaPipeline (text) {
 //     if (env.TEST_TEXT == null) {
 //         return false
@@ -41,6 +43,7 @@ pipeline {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 // echo ">>>>>>> text >>>> : ${result}"
                 echo ">>>>>>> text >>>> : ${hasQa}"
+             someObject.getClass()
 
             }
         }
