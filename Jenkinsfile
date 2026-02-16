@@ -36,6 +36,7 @@ pipeline {
                 echo  ">>>>>>>>>>>>>> ${qaPipeline}"
                 // echo  ">>>>>>>>>>>>>>" hasQa 
                 echo  ">>>>>>>>>>>>>> ${hasQa}"
+                echo "text >>>>>>>>>>" env.TEST_TEXT
 
             }
         }
@@ -47,7 +48,7 @@ pipeline {
         allOf {
                 // expression { qaPipeline(env.TEST_TEXT) != false }
              // expression {${env.TEST_TEXT?.toLowerCase()?.contains('[qa]')}" != false}}
-            expression { ${env.TEST_TEXT?.contains('[qa]')}}
+            expression { }
             }
         }
         steps {
