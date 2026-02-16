@@ -30,7 +30,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo  ">>>>>>>>>>>>>> qaPipeline(env.TEST_TEXT)"
+                echo  ">>>>>>>>>>>>>> env.TEST_TEXT?.toLowerCase()?.contains('[qa]'
             }
         }
 
