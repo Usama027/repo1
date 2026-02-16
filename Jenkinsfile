@@ -19,7 +19,7 @@ pipeline {
             branch 'repo1'
 
         allOf {
-                expression {${qaPipeline} == 'false' }
+                expression { "${qaPipeline}" == 'false' }
             }
         }
         steps {
