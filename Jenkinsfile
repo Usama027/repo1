@@ -43,7 +43,7 @@ pipeline {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 // echo ">>>>>>> text >>>> : ${result}"
                 echo ">>>>>>> text >>>> : ${hasQa}"
-             someObject.getClass()
+
 
             }
         }
