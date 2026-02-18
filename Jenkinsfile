@@ -20,9 +20,8 @@ pipeline {
                 // expression { qaPipeline.toBoolean() }
             // expression { (env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false) != 'false' }
             // }
-            expression {
-                return qaPipeline != null ')
-            }
+                expression { return env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+
         }
         steps {
             echo 'Deploying to repo1 #####################################...'
