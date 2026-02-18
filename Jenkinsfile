@@ -23,7 +23,7 @@ pipeline {
                     echo "Expression result >>>>>>>>>>>>>>: ${result}"
                 }
                     env.QA_FOUND = result
-                    echo "QA_FOUND >>>>>>>>>>>>>>:  ${env.QA_FOUND}"
+                    // echo "QA_FOUND >>>>>>>>>>>>>>:  ${env.QA_FOUND}"
             }
         }
         
