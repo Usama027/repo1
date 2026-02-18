@@ -17,7 +17,8 @@ pipeline {
                 allOf {
                     branch 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
-                    expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+                    // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+                        expression {env.TEST_TEXT != 'false'}
                 }
             }
             steps {
