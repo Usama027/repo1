@@ -49,25 +49,25 @@ pipeline {
             when {
                 branch 'repo1'
    
-                allOf {
-                    // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
-                    // expression { qa != null && qa != 'false' }
-                    // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
-                    // expression {result != false } 
-                    // expression {"${var}" != false && "${var}" != null}  
-                     // expression {"${env.QA_FOUND}" == 'true'} 
-                    // expression {  env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
-                    // expression {env.TEST_TEXT.contains("[qa]")} 
-                    // expression { env.TEST_TEXT ==~ /^[qa].*/ }
-                     // expression { env.TEST_TEXT ==~ /^[qa].*/ }
-                     // expression {env.QA_FOUND ==~ /.*true*/ }
-                    // expression {
-                    //          return 'true'
+                // allOf {
+                //     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
+                //     // expression { qa != null && qa != 'false' }
+                //     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
+                //     // expression {result != false } 
+                //     // expression {"${var}" != false && "${var}" != null}  
+                //      // expression {"${env.QA_FOUND}" == 'true'} 
+                //     // expression {  env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+                //     // expression {env.TEST_TEXT.contains("[qa]")} 
+                //     // expression { env.TEST_TEXT ==~ /^[qa].*/ }
+                //      // expression { env.TEST_TEXT ==~ /^[qa].*/ }
+                //      // expression {env.QA_FOUND ==~ /.*true*/ }
+                //     // expression {
+                //     //          return 'true'
                           
-                    // }
-                    // expression { env.TEST_TEXT?.toLowerCase()?.contains("[qa]") == 'true' }
+                //     // }
+                //     // expression { env.TEST_TEXT?.toLowerCase()?.contains("[qa]") == 'true' }
                           
-                    // expression { qa != null && qa != false  }
+                //     // expression { qa != null && qa != false  }
 
                     
                 }
