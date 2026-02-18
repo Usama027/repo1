@@ -24,6 +24,7 @@ pipeline {
                     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     echo "Expression result >>>>>>>>>>>>>>: ${result}"
                      var = result.toString()
+                    env.QA_FOUND = result.toString()
                     echo "QA_FOUND >>>>>>>>>>>> ${var} "
                 }
                  echo "QA_FOUND_OUT >>>>>>>>>>>> ${var} "
@@ -49,7 +50,8 @@ pipeline {
                     // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression {result != false } 
-                    expression {"${var}" != false && "${var}" != null}  
+                    // expression {"${var}" != false && "${var}" != null}  
+                     expression {env.QA_FOUND == 'true'} 
 
 
                     
