@@ -17,6 +17,7 @@ pipeline {
             }
         }
         
+        
         stage('check env') {
             steps {
                 script {
@@ -29,6 +30,14 @@ pipeline {
             }
         }
 
+
+
+        stage('echo var ') {
+            steps {
+
+                 echo "QA_FOUND_echo  >>>>>>>>>>>> ${var} "
+            }
+        }
         
         stage('Deploy to Production') {
             when {
