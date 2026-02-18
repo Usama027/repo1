@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         TEST_TEXT = 'any text with or without qa [qa]'
-        QA_FOUND = ''
+        // QA_FOUND = ''
     }
 
     stages {
@@ -22,7 +22,7 @@ pipeline {
                     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     echo "Expression result >>>>>>>>>>>>>>: ${result}"
                 }
-                    env.QA_FOUND = result
+                    // env.QA_FOUND = result
                     // echo "QA_FOUND >>>>>>>>>>>>>>:  ${env.QA_FOUND}"
             }
         }
