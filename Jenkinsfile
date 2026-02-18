@@ -50,7 +50,7 @@ pipeline {
                 // expression { env.QA_FOUND != false }
    
                 allOf {
-                    branch 'repo1'
+                    env.BRANCH_NAME 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
                     // expression { qa != null && qa != 'false' }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
