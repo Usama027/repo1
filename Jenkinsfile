@@ -11,45 +11,28 @@ pipeline {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 echo "text >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ${env.TEST_TEXT}"
-
-           
             }
         }
         
         stage('check env') {
             steps {
-                // script {
-                //     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                //     echo "Expression result >>>>>>>>>>>>>>: ${result}"
-                //     env.QA_FOUND = "${result}"
-                // }
                 script {
-                    // Define the function
+                    // Function to check for [qa]
                     def checkQA() {
-                        // This is your "script output" logic
                         return env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     }
-                    // Call the function and store the output
-                    def result = checkQA()
-                    // Use the output
-                    echo "QA found>>>>>>>>>>>: ${result}"
+                    // Call the function and store the output as a string in env.QA_FOUND
+                    env.QA_FOUND = checkQA().toString()
+                    echo "QA found >>>>>>>>>>>>>: ${env.QA_FOUND}"
                 }
-                   
-
             }
         }
         
         stage('Deploy to Production') {
             when {
-                expression { env.QA_FOUND != false }
                 allOf {
+                    expression { env.QA_FOUND == 'true' }
                     branch 'repo1'
-                    // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
-                    // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
-                    // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
-                    // expression {result != false } 
-
-                    
                 }
             }
             steps {
