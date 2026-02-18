@@ -1,3 +1,4 @@
+def env ()
 def var 
 def qa = env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
           
@@ -62,7 +63,7 @@ pipeline {
                           // expression { env.TEST_TEXT ==~ /^[qa].*/ }
                            // expression {env.QA_FOUND ==~ /.*true*/ }
                     expression {
-                             return 'true'.equals(env.TEST_TEXT?.toLowerCase()?.contains('[qa]'))
+                             return true
                           
                     }
 
