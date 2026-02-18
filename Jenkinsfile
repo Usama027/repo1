@@ -26,6 +26,7 @@ pipeline {
             }
                 echo "QA_FOUND outside script >>>>>>>>>>>>: ${env.QA_FOUND}" // 
         }
+        }
 
         
         stage('Deploy to Production') {
