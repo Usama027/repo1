@@ -14,11 +14,12 @@ pipeline {
            
             }
         }
+        
         stage('check env') {
             steps {
                 script {
                     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                    // echo "Expression result: ${result}"
+                    echo "Expression result >>>>>>>>>>>>>>: ${result}"
                 }
             }
         }
