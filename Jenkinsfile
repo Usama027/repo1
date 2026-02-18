@@ -47,15 +47,17 @@ pipeline {
         }
               
         
-        stage('Deploy to Production') {
-            when {
-                branch 'repo1'
-            }
-            steps {
-                echo 'Deploying to repo1 #####################11111111111111################...'
-                // Add production deployment steps here
-            }
-        }
+          stage('Deploy to Production') {
+              when {
+                  allOf {
+                      branch 'repo1'
+                      expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+                  }
+              }
+              steps {
+                  echo 'Deploying to repo1 ...'
+              }
+          }
 
         stage('Integration Tests') {
             when {
