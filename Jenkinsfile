@@ -18,14 +18,16 @@ pipeline {
         
         stage('check env') {
             steps {
-                script {
-                    def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                    echo "Expression result >>>>>>>>>>>>>>: ${result}"
-                    env.QA_FOUND = "${result}"
-                    echo "QA_FOUND >>>>>>>>>>>> ${env.QA_FOUND}"
-            }
-                echo "QA_FOUND outside script >>>>>>>>>>>>: ${env.QA_FOUND}" // 
-        }
+        //         script {
+        //             def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+        //             echo "Expression result >>>>>>>>>>>>>>: ${result}"
+        //             env.QA_FOUND = "${result}"
+        //             echo "QA_FOUND >>>>>>>>>>>> ${env.QA_FOUND}"
+        //     }
+        //         echo "QA_FOUND outside script >>>>>>>>>>>>: ${env.QA_FOUND}" // 
+        // }
+        def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+         echo "Expression result >>>>>>>>>>>>>>: ${result}"               
         }
 
         
