@@ -1,4 +1,4 @@
-nvdef var 
+def var 
 pipeline {
     agent any
 
