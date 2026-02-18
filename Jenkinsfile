@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
-                echo "text >>>>>>>>: ${env.TEST_TEXT}"
+                echo "text >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ${env.TEST_TEXT}"
            
             }
         }
@@ -19,7 +19,7 @@ pipeline {
                 allOf {
                     branch 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
-                    expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("[qa]") }
+                    expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                         // expression {env.TEST_TEXT != 'false'}
                 }
             }
