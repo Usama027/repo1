@@ -1,5 +1,6 @@
 def var 
-def qa = (env.TEST_TEXT?.toLowerCase()?.contains('[qa]')
+def qa = env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
+          
 pipeline {
     agent any
 
