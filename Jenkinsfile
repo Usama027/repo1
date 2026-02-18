@@ -17,7 +17,8 @@ pipeline {
         when {
             branch 'repo1'
         allOf {
-                expression { qaPipeline.toBoolean() }
+                // expression { qaPipeline.toBoolean() }
+            expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false != 'false' }
             }
         }
         steps {
