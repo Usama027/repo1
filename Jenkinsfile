@@ -39,6 +39,8 @@ pipeline {
             steps {
 
                  echo "QA_FOUND_echo  >>>>>>>>>>>> ${env.QA_FOUND} "
+
+                    echo "QA_FOUND_echo  >>>>>>>>>>>> ${qa} "
             }
         }
         
