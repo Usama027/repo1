@@ -1,4 +1,4 @@
-def var 
+nvdef var 
 pipeline {
     agent any
 
@@ -36,7 +36,7 @@ pipeline {
         stage('echo var ') {
             steps {
 
-                 echo "QA_FOUND_echo  >>>>>>>>>>>> ${var} "
+                 echo "QA_FOUND_echo  >>>>>>>>>>>> ${env.QA_FOUND} "
             }
         }
         
