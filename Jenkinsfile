@@ -16,22 +16,37 @@ pipeline {
             }
         }
         
+        // stage('check env') {
+        //     steps {
+        //         script {
+        //             // def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+        //             // echo "Expression result >>>>>>>>>>>>>>: ${result}"
+        //             // env.QA_FOUND = "${result}"
+        //             // echo "QA_FOUND >>>>>>>>>>>> ${env.QA_FOUND}"
+                  
+                    
+        //             def checkQA() {
+        //                 return env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+        //             }
+        //             env.QA_FOUND = checkQA().toString()
+        //             echo "QA found >>>>>>>>>>>>>: ${env.QA_FOUND}"
+                    
+        //         }
+
+
+        //     }
+        // }
         stage('check env') {
             steps {
                 script {
-                    // def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                    // echo "Expression result >>>>>>>>>>>>>>: ${result}"
-                    // env.QA_FOUND = "${result}"
-                    // echo "QA_FOUND >>>>>>>>>>>> ${env.QA_FOUND}"
+                    // Function to check for [qa]
                     def checkQA() {
                         return env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     }
+                    // Call the function and store the output as a string in env.QA_FOUND
                     env.QA_FOUND = checkQA().toString()
                     echo "QA found >>>>>>>>>>>>>: ${env.QA_FOUND}"
-                    
                 }
-
-
             }
         }
         
