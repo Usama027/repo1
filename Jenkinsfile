@@ -63,7 +63,7 @@ pipeline {
                           // expression { env.TEST_TEXT ==~ /^[qa].*/ }
                            // expression {env.QA_FOUND ==~ /.*true*/ }
                     expression {
-                             return true
+                             return 'true'
                           
                     }
 
