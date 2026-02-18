@@ -33,13 +33,14 @@ pipeline {
         stage('Deploy to Production') {
             when {
                 // expression { env.QA_FOUND != false }
-                expression {var.toString() == 'true' }     
+   
                 allOf {
                     branch 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
                     // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression {result != false } 
+                    expression {var == "true" }  
 
 
                     
