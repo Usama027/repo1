@@ -1,4 +1,4 @@
-def var = ""
+def var 
 pipeline {
     agent any
 
