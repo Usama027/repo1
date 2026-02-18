@@ -10,23 +10,27 @@ pipeline {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
                 echo "text >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ${env.TEST_TEXT}"
-                script {
-                    def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                    echo "Expression result: ${result}"
-                }
+
            
             }
         }
-
+        stage('check env') {
+            steps {
+                script {
+                    def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+                    // echo "Expression result: ${result}"
+                }
+            }
+        }
+        
         stage('Deploy to Production') {
             when {
                 allOf {
                     branch 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
                     // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
-                    // expression {env.TEST_TEXT != 'false'}
-                       // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
-                       expression { env.TEST_TEXT.contains("qa") }
+                    // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
+                       expression { result == 'true' }
 
                     
                 }
