@@ -29,12 +29,12 @@ pipeline {
                         // This is your "script output" logic
                         return env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     }
-                    // Call the function and store the output
-                    def result = checkQA()
+
                     // Use the output
                     echo "QA found>>>>>>>>>>>: ${result}"
                 }
-                   
+                    // Call the function and store the output
+                    def result = checkQA()
 
             }
         }
