@@ -51,7 +51,7 @@ pipeline {
               when {
                   allOf {
                       branch 'repo1'
-                      expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+                      // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
                   }
               }
               steps {
