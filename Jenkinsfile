@@ -18,23 +18,12 @@ pipeline {
         
         stage('check env') {
             steps {
-                // script {
-                //     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                //     echo "Expression result >>>>>>>>>>>>>>: ${result}"
-                //     env.QA_FOUND = "${result}"
-                // }
                 script {
-                    // Define the function
-                    def checkQA() {
-                        // This is your "script output" logic
-                        return env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-                    }
-
-                    // Use the output
-                    echo "QA found>>>>>>>>>>>: ${result}"
+                    def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+                    echo "Expression result >>>>>>>>>>>>>>: ${result}"
+                    env.QA_FOUND = "${result}"
                 }
-                    // Call the function and store the output
-                    def result = checkQA()
+
 
             }
         }
