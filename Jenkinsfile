@@ -37,14 +37,14 @@ pipeline {
 
               
 
-        stage('echo var ') {
-            steps {
+        // stage('echo var ') {
+        //     steps {
 
-                 echo "QA_FOUND_echo  >>>>>>>>>>>> ${env.QA_FOUND} "
+        //          echo "QA_FOUND_echo  >>>>>>>>>>>> ${env.QA_FOUND} "
 
-                    echo "QA_FOUND_echo  >>>>>>>>>>>> ${qa} "
-            }
-        }
+        //             echo "QA_FOUND_echo  >>>>>>>>>>>> ${qa} "
+        //     }
+        // }
               
         
           stage('Deploy to Production') {
