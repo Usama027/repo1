@@ -22,7 +22,7 @@ pipeline {
                 script {
                     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     echo "Expression result >>>>>>>>>>>>>>: ${result}"
-                     var = result
+                     var = result.toString()
                     echo "QA_FOUND >>>>>>>>>>>> ${var} "
                 }
             }
