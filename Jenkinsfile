@@ -1,4 +1,5 @@
 def var 
+def qa = (env.TEST_TEXT?.toLowerCase()?.contains('[qa]')
 pipeline {
     agent any
 
@@ -47,7 +48,7 @@ pipeline {
                 allOf {
                     branch 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
-                    expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
+                    expression { qa != null && qa != 'false' }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression {result != false } 
                     // expression {"${var}" != false && "${var}" != null}  
