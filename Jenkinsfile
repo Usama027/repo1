@@ -68,7 +68,7 @@ pipeline {
                     // }
                           // expression { env.TEST_TEXT?.toLowerCase()?.contains("[qa]") == 'true' }
                           
-                              expression { qa == 'true' }
+                              expression { qa != null && qa != false  }
 
                     
                 }
