@@ -35,6 +35,7 @@ pipeline {
         }
 
 
+              
 
         stage('echo var ') {
             steps {
@@ -44,6 +45,7 @@ pipeline {
                     echo "QA_FOUND_echo  >>>>>>>>>>>> ${qa} "
             }
         }
+              
         
         stage('Deploy to Production') {
             when {
