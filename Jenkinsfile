@@ -21,7 +21,7 @@ pipeline {
             // expression { (env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false) != 'false' }
             // }
             expression {
-                return qaPipeline != null && env.TEST_TEXT?.toLowerCase()?.contains('[qa]')
+                return qaPipeline != null ')
             }
         }
         steps {
