@@ -27,7 +27,7 @@ pipeline {
                 }
                  echo "QA_FOUND_OUT >>>>>>>>>>>> ${var} "
             }
-           
+           echo "QA_FOUND_OUT_2 >>>>>>>>>>>> ${var} "
         }
 
         
