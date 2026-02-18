@@ -22,20 +22,20 @@ pipeline {
                     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     echo "Expression result >>>>>>>>>>>>>>: ${result}"
                 }
-                    // env.QA_FOUND = result
+                    env.QA_FOUND = result
                     // echo "QA_FOUND >>>>>>>>>>>>>>:  ${env.QA_FOUND}"
             }
         }
         
         stage('Deploy to Production') {
             when {
-                expression { env.TEST_TEXT.toLowerCase().contains('[qa]') }
+                expression { env.QA_FOUND != false }
                 allOf {
                     branch 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
                     // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
-                       expression {result != false } 
+                    // expression {result != false } 
 
                     
                 }
