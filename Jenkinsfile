@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
+                echo "text >>>>>>>>: ${env.TEST_TEXT}"
             }
         }
 
