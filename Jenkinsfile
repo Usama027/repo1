@@ -49,7 +49,7 @@ pipeline {
                     // expression { env.TEST_TEXT != null && env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
                     // expression {result != false } 
-                    expression {"${var}"}  
+                    expression {"${var}" != false && "${var}" != null}  
 
 
                     
