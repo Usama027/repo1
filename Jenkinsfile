@@ -1,3 +1,4 @@
+def var = ""
 pipeline {
     agent any
 
@@ -21,7 +22,7 @@ pipeline {
                 script {
                     def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
                     echo "Expression result >>>>>>>>>>>>>>: ${result}"
-                    def var = result
+                     var = result
                     echo "QA_FOUND >>>>>>>>>>>> ${var} "
                 }
             }
