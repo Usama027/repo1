@@ -62,8 +62,7 @@ pipeline {
                           // expression { env.TEST_TEXT ==~ /^[qa].*/ }
                            // expression {env.QA_FOUND ==~ /.*true*/ }
                     expression {
-                    def skipBuild=env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false
-                    return 
+                             return 'true'.equals(env.TEST_TEXT?.toLowerCase()?.contains('[qa]'))
                           
                     }
 
