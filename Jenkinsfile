@@ -50,7 +50,7 @@ pipeline {
           stage('Deploy to Production') {
               when {
                   allOf {
-                      branch 'repo1'
+                      branch 'branch1'
                       // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
                   }
               }
