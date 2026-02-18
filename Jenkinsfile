@@ -56,7 +56,7 @@ pipeline {
                     // expression {result != false } 
                     // expression {"${var}" != false && "${var}" != null}  
                      // expression {"${env.QA_FOUND}" == 'true'} 
-                        expression {  env.TEST_TEXT?.toLowerCase()?.contains('[qa]' }
+                        expression {  env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
 
 
                     
