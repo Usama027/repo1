@@ -58,7 +58,11 @@ pipeline {
                      // expression {"${env.QA_FOUND}" == 'true'} 
                         // expression {  env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
                     // expression {env.TEST_TEXT.contains("[qa]")} 
-                         expression { env.TEST_TEXT ==~ /^[qa].*/ }
+                         // expression { env.TEST_TEXT ==~ /^[qa].*/ }
+                          // expression { env.TEST_TEXT ==~ /^[qa].*/ }
+                           expression {env.QA_FOUND ==~ /.*true*/ }
+                          
+                          
 
 
                     
