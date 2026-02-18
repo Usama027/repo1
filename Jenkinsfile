@@ -20,7 +20,7 @@ pipeline {
                 // expression { qaPipeline.toBoolean() }
             // expression { (env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
             // }
-                expression {env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
+                expression {env.BRANCH_NAME != null && env.TEST_TEXT?.toLowerCase()?.contains('[qa]') }
 
         }
         steps {
