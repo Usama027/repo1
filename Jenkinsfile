@@ -47,10 +47,9 @@ pipeline {
         
         stage('Deploy to Production') {
             when {
-                // expression { env.QA_FOUND != false }
+                branch 'repo1'
    
                 allOf {
-                    env.BRANCH_NAME 'repo1'
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains('[qa]') ?: false }
                     // expression { qa != null && qa != 'false' }
                     // expression { env.TEST_TEXT?.toLowerCase()?.contains("qa") }
