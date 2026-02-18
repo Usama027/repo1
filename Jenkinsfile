@@ -25,6 +25,7 @@ pipeline {
                      var = result.toString()
                     echo "QA_FOUND >>>>>>>>>>>> ${var} "
                 }
+                 echo "QA_FOUND_OUT >>>>>>>>>>>> ${var} "
             }
            
         }
