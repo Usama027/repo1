@@ -28,7 +28,7 @@ pipeline {
                 // Add production deployment steps here
             }
         }
-        }
+        
 
         stage('Integration Tests') {
             when {
@@ -40,5 +40,5 @@ pipeline {
             }
         }
     }
+    }
 }
-
