@@ -4,7 +4,6 @@ pipeline {
 
     environment {
         TEST_TEXT = 'any text with or without qa [qa]'
-        QA_FOUND = ''
     }
 
     stages {
