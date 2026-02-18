@@ -26,8 +26,8 @@ pipeline {
         //     }
         //         echo "QA_FOUND outside script >>>>>>>>>>>>: ${env.QA_FOUND}" // 
         // }
-        def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
-         echo "Expression result >>>>>>>>>>>>>>: ${result}"               
+                def result = env.TEST_TEXT != null && env.TEST_TEXT.toLowerCase().contains('[qa]')
+                 echo "Expression result >>>>>>>>>>>>>>: ${result}"               
             }
         }
 
