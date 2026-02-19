@@ -8,8 +8,19 @@ pipeline {
     environment {
         TEST_TEXT = 'any text with or without qa [qa]'
     }
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'test', 'prod'], description: 'Select environment')
+    }
 
+    
     stages {
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying to environment: ${params.ENVIRONMENT}"
+                // Add deployment steps here
+            }
+        }
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
