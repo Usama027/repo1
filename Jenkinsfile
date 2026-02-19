@@ -5,7 +5,10 @@ pipeline {
     environment {
         TEST_TEXT     = 'any text with or without qa'
     }
-    
+
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'test', 'prod'], description: 'Select environment')
+    }
     stages {
         stage('Build') {
             steps {
