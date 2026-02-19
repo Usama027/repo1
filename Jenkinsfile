@@ -9,14 +9,16 @@ pipeline {
     parameters {
         choice(name: 'ENVIRONMENT', choices: ['dev', 'test', 'prod'], description: 'Select environment')
     }
-    stage('Deploy') {
+
+    
+    stages {
+
+        stage('Deploy') {
             steps {
                 echo "Deploying to environment: ${params.ENVIRONMENT}"
                 // Add deployment steps here
             }
-    }
-    
-    stages {
+        }
         stage('Build') {
             steps {
                 echo "Building on branch: ${env.BRANCH_NAME}"
